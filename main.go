@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"study/user"
+)
 
 func main() {
-	fmt.Println("Hello World!")
+	u := user.NewUser("Данил", 50)
+	fmt.Println("User Name:", u)
 }

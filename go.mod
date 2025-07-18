@@ -1,3 +1,3 @@
-module demo/app-1
+module study
 
 go 1.24.4
