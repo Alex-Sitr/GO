@@ -1,8 +1,6 @@
 package main
 
-import (
-	"github.com/k0kubun/pp"
-)
+import "github.com/k0kubun/pp"
 
 type User struct {
 	Name    string
@@ -12,7 +10,7 @@ type User struct {
 
 func main() {
 
-	userAray := [3]User{
+	userAray := []User{
 		User{
 			Name:    "Вася",
 			Rating:  5.5,
@@ -30,23 +28,23 @@ func main() {
 		},
 	}
 
-	pp.Println("до")
-	pp.Println("----------")
-	for index, user := range userAray {
-		pp.Println(index, user)
-	}
-	pp.Println("")
+	userArray := append(
+		userAray,
+		User{
+			Name:    "Виталик",
+			Rating:  4.0,
+			Premium: true,
+		},
+	)
 
-	for index, user := range userAray {
-		if user.Premium {
-			userAray[index].Rating += 1
-		}
-	}
-	pp.Println("после")
-	pp.Println("----------")
-	for i := 0; i < len(userAray); i++ {
-		pp.Println(userAray[i])
-	}
-	pp.Println("")
+	pp.Println("len:", len(userArray))
+	pp.Println("cap:", cap(userArray))
 
+	intSlice := make([]int, 0, 10)
 }
+
+// type Slice struct {
+// 	len int,
+// 	cap int,
+// 	ptr *[]type,
+// }
