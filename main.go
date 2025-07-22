@@ -1,46 +1,53 @@
 package main
 
-import "github.com/k0kubun/pp"
-
-type User struct {
-	Name    string
-	Rating  float64
-	Premium bool
-}
+import (
+	"github.com/k0kubun/pp"
+)
 
 func main() {
 
-	userAray := []User{
-		User{
-			Name:    "Вася",
-			Rating:  5.5,
-			Premium: true,
-		},
-		User{
-			Name:    "Вася",
-			Rating:  4.5,
-			Premium: false,
-		},
-		User{
-			Name:    "Вася",
-			Rating:  7.5,
-			Premium: true,
-		},
+	// weather := map[int]int{
+	// 	11: +3,
+	// 	12: +6,
+	// 	13: +9,
+	// 	14: -4,
+	// 	15: +1,
+	// }
+
+	// for key, _ := range weather {
+	// 	weather[key] += 1
+	// }
+
+	// c, ok := weather[30]
+	// if ok {
+	// 	pp.Println("OKEY")
+	// } else {
+	// 	pp.Println("bad")
+	// }
+	// pp.Println(c)
+	// pp.Println(weather)
+
+	criminal := map[string]bool{
+		"Вася":    true,
+		"Петя":    false,
+		"Антон":   false,
+		"Вова":    false,
+		"Алексей": true,
 	}
 
-	userArray := append(
-		userAray,
-		User{
-			Name:    "Виталик",
-			Rating:  4.0,
-			Premium: true,
-		},
-	)
+	c, ok := criminal["Вася"]
 
-	pp.Println("len:", len(userArray))
-	pp.Println("cap:", cap(userArray))
-
-	intSlice := make([]int, 0, 10)
+	if !ok {
+		pp.Println("Человека нет в базе")
+		return
+	}
+	pp.Println("Человека найден в базе")
+	if c {
+		pp.Println("Человек судим")
+	} else {
+		pp.Println("Человек не судим")
+	}
+	// pp.Println(c, ok)
 }
 
 // type Slice struct {
